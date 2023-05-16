@@ -1,0 +1,3 @@
+http://localhost:5055/webhook
+https://github.com/machaao/rasa-sample-nlu-bot/blob/master/connectors/MachaaoConnector.py
+https://www.tyntec.com/docs/whatsapp-business-api-integration-rasa

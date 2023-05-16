@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <title>Rasa Live agent App</title>
+  </head>
+  <body>
+    <div class="message_holder"></div>
+	<label>
+	<input type="text" id="input_message">
+	<input id="send_button" type="button" value="Submit">
+	<p id="message"></p>
+	
+	
+
+</label>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="crossorigin="anonymous"></script>
+<script>
+        function load_data() {
+            $.ajax({
+                url: "/display_message",
+                type: "get",
+                success: function (response) {
+//console.log(response);
+if (response.message != ""){
+$("#message").append("<b>"+ "Sender : " + "</b>" +response.message+"<br>")
+//$("message").append(response.message+"<br>");
+//document.write(response.message+"<br>");
+//document.write("<br>");
+}
+
+}
+            });
+};
+	    setInterval(function () { load_data() }, 3000);
+</script>
+	<script>
+	$("#send_button").click(function(e) {
+    e.preventDefault();
+	var input_value= $("#input_message").val();
+//console.log(input_value);
+    $.ajax({
+        type: "POST",
+        url: "/send_data",
+        data: { 
+	data:input_value 
+        },
+                success: function (response) {
+//console.log(response);
+if (response.message != ""){
+$("#message").append("<b>" + "Agent : " + "</b>" +response.message+"<br>")
+//$("message").append(response.message+"<br>");
+//document.write(response.message+"<br>");
+//document.write("<br>");
+}
+
+}
+    });
+});
+	</script>
+  </body>
+  </html>

@@ -1,0 +1,205 @@
+version: "3.0"
+
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+
+- intent: goodbye
+  examples: |
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - goodbye
+    - have a nice day
+    - see you around
+    - see you later
+
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+
+- intent: mood_great
+  examples: |
+    - perfect
+    - great
+    - amazing
+    - feeling like a king
+    - wonderful
+    - I am feeling very good
+    - I am great
+    - I am amazing
+    - I am going to save the world
+    - super stoked
+    - extremely good
+    - so so perfect
+    - so good
+    - so perfect
+
+- intent: mood_unhappy
+  examples: |
+    - my day was horrible
+    - I am sad
+    - I don't feel very well
+    - I am disappointed
+    - super sad
+    - I'm so sad
+    - sad
+    - very sad
+    - unhappy
+    - not good
+    - not very good
+    - extremly sad
+    - so saad
+    - so sad
+
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+
+- intent: restart
+  examples: |
+    - restart chat
+    - bye
+    - bye bye
+    - restart the conversation
+    - start the conversation again
+    - start again
+
+- intent: choosing_item
+  examples: |
+    - Bank Account
+    - bank Account
+    - bank account
+    - Bank account
+
+- intent: optionOneSelection
+  examples : |
+    - Account Balance
+    - account balance
+    - Account balance
+    - account Balance
+
+- intent: optionTwoSelection
+  examples : |
+    - Last Transaction
+    - Last transaction
+    - last transaction
+    - last Transaction
+
+- intent: optionThreeSelection
+  examples : |
+    - Account Statement Request
+    - account statement request
+    - Account Statement request
+    - account Statement Request
+
+- intent: optionFourSelection
+  examples : |
+    - Cheque book Request
+    - cheque book request
+    - Cheque Book request
+    - Cheque book Request
+
+- intent: application_number
+  examples : |
+    - 1110987654321
+    - 1234567891011
+
+- intent: ccOPtionSelectionOne
+  examples : |
+    - Credit Card Status
+    - credit card status
+    - Credit Card status
+    - credit card Status
+
+- intent: ccOPtionSelectionTwo
+  examples : |
+    - amount due
+    - Amount Due
+    - Amount due
+    - amount Due
+
+- intent: ccOPtionSelectionThree
+  examples : |
+    - Available Balance
+    - Available balance
+    - available Balance
+    - available balance
+
+- intent: cc_options
+  examples: |
+    - Credit Card
+    - Credit card
+    - credit Card
+    - credit card
+
+- intent: shirt_order
+  examples: |
+      - I want to make an order for a shirt.
+      - I would like to buy a new shirt.
+      - Can you help me to place an order for new shirt?
+      - I want a new shirt.
+      - Order Shirt.
+      - Order shirt.
+      - order Shirt.
+      - order shirt.
+
+- intent: inform_color
+  examples: |
+      - My favourite color is [yellow](color).
+      - I would like to have a [purple](color) shirt.
+      - color [orange](color)
+      - [red](color)
+
+- intent: give_shirt_size
+  examples: |
+    - i want a [large](shirt_size) shirt
+    - [medium](shirt_size) size
+    - give me a [small](shirt_size) tshirt
+    - [small](shirt_size)
+    - [medium](shirt_size)
+    - [large](shirt_size)
+    - i'd prefer [medium](shirt_size) size
+    - gimme gimme gimme [small](shirt_size) tshirt
+    - give shirt size
+    - i want a [large](shirt_size) shirt please
+    - i want to give you my shirt
+    - [large](shirt_size)
+
+- intent: give_shirt_pattern
+  examples: |
+    - i want a [plain](shirt_pattern) shirt
+    - [printed](shirt_pattern)
+    - give me a [round neck](shirt_pattern) shirt

@@ -1,0 +1,133 @@
+version: "3.0"
+
+stories:
+
+- story: happy path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_great
+  - action: utter_happy
+
+- story: sad path 1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_happy
+
+- story: sad path 2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: deny
+  - action: utter_goodbye
+
+- story: bank account balance path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: choosing_item
+  - action: utter_bank_account
+  - intent: optionOneSelection
+  - action: utter_bankbalance
+  - intent: restart
+  - action: action_restart
+
+- story: last transaction path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: choosing_item
+  - action: utter_bank_account
+  - intent: optionTwoSelection
+  - action: utter_lasttransaction
+  - intent: restart
+  - action: action_restart
+
+- story: statement request path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: choosing_item
+  - action: utter_bank_account
+  - intent: optionThreeSelection
+  - action: utter_statementrequest
+  - intent: restart
+  - action: action_restart
+
+- story: cheque book request path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: choosing_item
+  - action: utter_bank_account
+  - intent: optionFourSelection
+  - action: utter_chequebook
+  - intent: restart
+  - action: action_restart
+
+- story: credit card application status path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: cc_options
+  - action: utter_cc
+  - intent: ccOPtionSelectionOne
+  - action: utter_ccApplication_status
+  - intent: application_number
+  - action: utter_ccStatus
+  - intent: restart
+  - action: action_restart
+
+- story: credit card amount due path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: cc_options
+  - action: utter_cc
+  - intent: ccOPtionSelectionTwo
+  - action: utter_amountDue
+  - intent: restart
+  - action: action_restart
+
+- story: credit card available balance path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: cc_options
+  - action: utter_cc
+  - intent: ccOPtionSelectionThree
+  - action: utter_ccBalance
+  - intent: restart
+  - action: action_restart
+
+- story: interactive story
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: shirt_order
+  - action: order_shirt_form
+  - active_loop: order_shirt_form
+  - slot_was_set:
+    - requested_slot: color
+  - slot_was_set:
+    - color: orange
+  - slot_was_set:
+    - requested_slot: shirt_size
+  - slot_was_set:
+    - color: medium
+  - slot_was_set:
+    - requested_slot: shirt_pattern
+  - slot_was_set:
+    - color: plain
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_ordered_shirt

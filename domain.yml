@@ -1,0 +1,132 @@
+version: "3.0"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - choosing_item
+  - optionOneSelection
+  - optionTwoSelection
+  - optionThreeSelection
+  - optionFourSelection
+  - restart
+  - application_number
+  - ccOPtionSelectionOne
+  - ccOPtionSelectionTwo
+  - ccOPtionSelectionThree
+  - cc_options
+  - shirt_order
+  - inform_color
+  - give_shirt_size
+  - give_shirt_pattern
+
+entities:
+  - color
+  - shirt_size
+  - shirt_pattern
+
+slots:
+  color:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: color
+      conditions:
+      - active_loop: order_shirt_form
+  shirt_size:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: shirt_size
+      conditions:
+      - active_loop: order_shirt_form
+  shirt_pattern:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: shirt_pattern
+      conditions:
+      - active_loop: order_shirt_form
+
+responses:
+  utter_greet:
+  - text: "Hey! How are you? Please select an option to proceed.\n 1. Bank Account.\n 2. Credit Card."
+
+  utter_cheer_up:
+  - text: "Here is something to cheer you up:"
+    image: "https://i.imgur.com/nGF1K8f.jpg"
+
+  utter_did_that_help:
+  - text: "Did that help you?"
+
+  utter_happy:
+  - text: "Great, carry on!"
+
+  utter_goodbye:
+  - text: "Bye"
+
+  utter_iamabot:
+  - text: "I am a bot, powered by Rasa."
+
+  utter_bank_account:
+  - text: "Please select an option to proceed.\n 1. Account Balance.\n 2. Last Transaction.\n 3. Account Statement Request. \n 4. Cheque book Request."
+
+  utter_bankbalance:
+  - text: "Your Bank account balance is 12,000 INR."
+
+  utter_lasttransaction:
+  - text: "1. You made a debit of 1200 INR ar DMart.\n 2. You made a transfer of 2000 INR to family or friends.\n 3. Paid WiFi bill via phone pay of 2828 INR.\n 4. Paid electricity bill of 5000 INR via Amazon Pay.\n 5. Grocerry purchase at City Square of 3000 INR.\n 6. Mobile Recharge via Phonepe of 219 INR.\n 7. Paid 500 INR to society welfare fund.\n 8. Fuel charges of INR 2000 at Essar Petroleum.\n 9. You made a transfer of 2000 INR to family or friends.\n 10. Amazon gift card to friend of INR 1500."
+
+  utter_statementrequest:
+  - text: "Your statement has been sent to your registered emailID."
+
+  utter_chequebook:
+  - text: "Your Cheque book requet has been received and accepted. You will receive it at you registered addres in 5-7 working days."
+
+  utter_cc:
+  - text: "Please select an option to proceed.\n 1. Credit card status.\n 2. Credit Card amount due.\n 3. Credit card available balance."
+
+  utter_ccApplication_status:
+  - text: "Please enter your 13 digit credit card application number."
+
+  utter_ccStatus:
+  - text: "Your credit card application is in process. It usually take 15 days to complete the process."
+
+  utter_amountDue:
+  - text: "Your credit card due amount is 4,525.67 INR."
+
+  utter_ccBalance:
+  - text: "Your credit card available balance is 15,475.33 INR."
+
+  utter_ask_color:
+    - text: "What color shirt would you like?"
+
+  utter_ask_shirt_size:
+    - text: "What size would you like?"
+
+  utter_ask_shirt_pattern:
+    - text: "What pattern would you like to wear?"
+
+  utter_ordered_shirt:
+    - text: "Your order is all set. You have ordered a {color} color shirt of size {shirt_size} with {shirt_pattern} pattern."
+
+actions:
+  - action_restart
+
+forms:
+  order_shirt_form:
+    required_slots:
+    - color
+    - shirt_size
+    - shirt_pattern
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
